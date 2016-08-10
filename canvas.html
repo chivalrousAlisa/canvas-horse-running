@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>canvas-horse-running</title>
+</head>
+
+<body>
+<div>
+    <img src="img/horse.gif" alt=""/>
+</div>
+<canvas id="canvas" width="900px" height="600px"></canvas>
+</body>
+<script>
+    var canvas=document.getElementById("canvas");
+    var context=canvas.getContext("2d");
+    console.log(context);
+    var horseImg=new Image();
+    horseImg.src="img/horse.gif";
+    horseImg.onload = function(){
+        console.log(this);
+        var ptn = context.createPattern(horseImg,"no-repeat");
+        context.fillStyle = ptn;
+        context.fillRect(0,0,canvas.width,canvas.height);
+    }
+</script>
+</html>
