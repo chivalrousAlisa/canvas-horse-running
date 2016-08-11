@@ -5,25 +5,84 @@
     <meta name="format-detection" content="telephone=no, email=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>canvas-horse-running</title>
+    <style>
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        body{
+            padding:0;
+            margin:0;
+            overflow: hidden;
+        }
+    </style>
 </head>
-
 <body>
-<div>
-    <img src="img/horse.gif" alt=""/>
-</div>
-<canvas id="canvas" width="900px" height="600px"></canvas>
+<canvas id="canvas"></canvas>
 </body>
 <script>
-    var canvas=document.getElementById("canvas");
-    var context=canvas.getContext("2d");
-    console.log(context);
-    var horseImg=new Image();
-    horseImg.src="img/horse.gif";
-    horseImg.onload = function(){
-        console.log(this);
-        var ptn = context.createPattern(horseImg,"no-repeat");
-        context.fillStyle = ptn;
-        context.fillRect(0,0,canvas.width,canvas.height);
+    var canvas={
+        init:function(){
+            this.initPage();
+            this.renderPic();
+        },
+        initPage:function(){
+            function hengshuping(){
+                window.location.reload();
+            }
+            window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+        },
+        renderPic:function(){
+            var canvas=document.getElementById("canvas");
+
+            var cW=document.body.offsetWidth,cH=document.body.clientHeight;
+            canvas.width=cW;
+            canvas.height=cH;
+
+            var context=canvas.getContext("2d");
+
+            var bg1=new Image();
+            bg1.src="images/123.png";
+            var bg2=new Image();
+            bg2.src="images/123.png";
+            var x1=0,x2=cW;//初始化两张背景图的x坐标值；
+
+            var arr=new Array(20);//初始化马儿img
+            for(var i=0;i<arr.length;i++){
+                arr[i]=new Image();
+                arr[i].src='images/pic'+(i+1)+'.png';
+            }
+            var n=0;//初始化控制马儿的图片
+            var timer=setInterval(function(){
+                //绘制背景图
+                (function(){
+                    context.clearRect(0,0,cW,cH);
+                    context.drawImage(bg1,x1,0,cW,cH);
+                    context.drawImage(bg2,x2,0,cW,cH);
+                    x1-=10;
+                    x2-=10;
+                    if(x1<-cW){
+                        x1=cW;
+                        x2=0;
+                    }
+                    if(x2<-cW){
+                        x2=cW;
+                        x1=0;
+                    }
+                })();
+
+                //绘制马儿
+                (function(){
+                    var hW=378,hH=292;//马儿每张图片的宽高
+                    context.drawImage(arr[n],cW/2-hW/2,cH-hH-35,hW,hH);
+                    ++n;
+                    n===arr.length && (n=0);
+                })();
+
+            },30);
+        }
+
     }
+    canvas.init();
 </script>
 </html>

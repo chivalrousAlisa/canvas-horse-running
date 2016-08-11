@@ -33,7 +33,7 @@
             width:100%;
             height:100%;
             background-color:green;
-            background-image:url(img/background1.jpg);
+            background-image:url(images/123.png);
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-position: center;
@@ -110,6 +110,9 @@
     </div>
 </body>
 <script>
-
+    function hengshuping(){
+        window.location.reload();
+    }
+    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
 </script>
 </html>
