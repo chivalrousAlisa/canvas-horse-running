@@ -1,0 +1,186 @@
+li{
+  list-style: none;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+.bg{
+  width: 800px;
+  height: 400px;
+  margin: 0 auto;
+  background-image: url("123.png");
+  background-size: 100%;
+}
+.box{
+  position: relative;
+  width: 800px;
+  height: 400px;
+  overflow:hidden;
+}
+.box ul{
+
+}
+.box ul,.box li{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.box .bg-two{
+  left: 800px;
+  top: 0;
+}
+.m{
+  width: 80px;
+  height: 60px;
+  position: absolute;
+  background-image: url("img/xiaoma1.png");
+  background-size: 100%;
+  top: 290px;
+  left: 0;
+}
+.bg-one{
+  animation: oneMove 5s linear infinite;
+  -o-animation: oneMove 5s linear infinite;
+  -moz-animation: oneMove 5s linear infinite;
+  -webkit-animation: oneMove 5s linear infinite;
+  -ms-animation: oneMove 5s linear infinite;
+}
+.bg-two{
+  animation: twoMove 5s linear infinite;
+  -o-animation: twoMove 5s linear infinite;
+  -webkit-animation: twoMove 5s linear infinite;
+  -moz-animation: twoMove 5s linear infinite;
+  -ms-animation: twoMove 5s linear infinite;
+}
+.m{
+  animation: m 5s cubic-bezier(0.05,0.10,0.55,0.15) infinite;
+  -moz-animation: m 5s cubic-bezier(0.05,0.10,0.55,0.15) infinite;
+  -webkit-animation: m 5s cubic-bezier(0.05,0.10,0.55,0.15) infinite;
+  -o-animation: m 5s cubic-bezier(0.05,0.10,0.55,0.15) infinite;
+  -ms-animation: m 5s cubic-bezier(0.05,0.10,0.55,0.15) infinite;
+}
+/* 第一张背景图 */
+@keyframes oneMove {
+  0%{
+    left: 0;
+  }
+  100%{
+    left: -800px;
+  }
+}
+  @-webkit-keyframes oneMove {
+    0%{
+      left: 0;
+    }
+    100%{
+      left: -800px;
+    }
+  }
+  @-o-keyframes oneMove {
+    0%{
+      left: 0;
+    }
+    100%{
+      left: -800px;
+    }
+  }
+  @-moz-keyframes oneMove {
+    0%{
+      left: 0;
+    }
+    100%{
+      left: -800px;
+    }
+  }
+  @-ms-keyframes oneMove {
+    0%{
+      left: 0;
+    }
+    100%{
+      left: -800px;
+    }
+  }
+/* 第二张背景图 */
+@keyframes twoMove {
+  0%{
+    left: 800px;
+  }
+  100%{
+    left: 0px;
+  }
+}
+@-webkit-keyframes twoMove {
+  0%{
+    left: 800px;
+  }
+  100%{
+    left: 0px;
+  }
+}
+@-o-keyframes twoMove {
+  0%{
+    left: 800px;
+  }
+  100%{
+    left: 0px;
+  }
+}
+@-moz-keyframes twoMove {
+  0%{
+    left: 800px;
+  }
+  100%{
+    left: 0px;
+  }
+}
+@-ms-keyframes twoMove {
+  0%{
+    left: 800px;
+  }
+  100%{
+    left: 0px;
+  }
+}
+
+/* 马动画 */
+@keyframes m{
+  0%{
+    left: 800px;
+  }
+  100%{
+    left: 0;
+  }
+}
+@-webkit-keyframes m{
+  0%{
+    left: 800px;
+  }
+  100%{
+    left: 0;
+  }
+}
+@-o-keyframes m{
+  0%{
+    left: 800px;
+  }
+  100%{
+    left: 0;
+  }
+}
+@-moz-keyframes m{
+  0%{
+    left: 800px;
+  }
+  100%{
+    left: 0;
+  }
+}
+@-ms-keyframes m{
+  0%{
+    left: 800px;
+  }
+  100%{
+    left: 0;
+  }
+}

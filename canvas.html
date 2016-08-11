@@ -43,8 +43,6 @@
 
             var bg1=new Image();
             bg1.src="images/123.png";
-            var bg2=new Image();
-            bg2.src="images/123.png";
             var x1=0,x2=cW;//初始化两张背景图的x坐标值；
 
             var arr=new Array(20);//初始化马儿img
@@ -56,11 +54,12 @@
             var timer=setInterval(function(){
                 //绘制背景图
                 (function(){
+                    var speed=10;
                     context.clearRect(0,0,cW,cH);
                     context.drawImage(bg1,x1,0,cW,cH);
-                    context.drawImage(bg2,x2,0,cW,cH);
-                    x1-=10;
-                    x2-=10;
+                    context.drawImage(bg1,x2,0,cW,cH);
+                    x1-=speed;
+                    x2-=speed;
                     if(x1<-cW){
                         x1=cW;
                         x2=0;
@@ -73,7 +72,7 @@
 
                 //绘制马儿
                 (function(){
-                    var hW=378,hH=292;//马儿每张图片的宽高
+                    var hW=189,hH=186;//马儿每张图片的宽高
                     context.drawImage(arr[n],cW/2-hW/2,cH-hH-35,hW,hH);
                     ++n;
                     n===arr.length && (n=0);
